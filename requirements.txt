@@ -1,0 +1,9 @@
+cassandra-driver==3.29.0
+python-dotenv
+langchain-openai
+langchain
+psycopg2
+langchain-community
+langchain-openai
+
+
