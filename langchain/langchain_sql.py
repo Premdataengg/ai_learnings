@@ -4,6 +4,7 @@ from langchain_community.utilities import SQLDatabase
 from langchain.chains import create_sql_query_chain
 from langchain_openai import ChatOpenAI
 from langchain_community.tools.sql_database.tool import QuerySQLDataBaseTool
+from langchain_community.agent_toolkits import create_sql_agent
 from operator import itemgetter
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import PromptTemplate
@@ -51,5 +52,18 @@ chain = (
 #How many employees are born before 1950
 #give me the hiredates of each employee with names and format date in mm-dd-yyyy
 
-res = chain.invoke({"question": "give me the average amount per invoice from invoice table"})
-print(res)
+res = chain.invoke({"question": "give me the total amount per customer and format the output "})
+# git(res)
+
+
+
+#sql agent
+agent_executor = create_sql_agent(llm, db=db, agent_type="openai-tools", verbose=True)
+
+agent_executor.invoke(
+    {
+        "input": "List the total sales per country. Which country's customers spent the most?"
+    }
+)
+
+agent_executor.invoke({"input": "how many tables have column that contains the word Id print the table names and column names"})
