@@ -138,7 +138,7 @@ prompt_val = full_prompt.invoke(
         "agent_scratchpad": [],
     }
 )
-print(prompt_val.to_string())
+# print(prompt_val.to_string())
 
 
 
@@ -151,4 +151,6 @@ agent = create_sql_agent(
 )
 
 
-agent.invoke({"input": "How many table are there with column name id in them?"})
+# agent.invoke({"input": "How many tables are there with column name id in them?"})
+
+agent.invoke({"input": "How many coulumns are there in each table that contains the word name can you print the table and column names?"})
