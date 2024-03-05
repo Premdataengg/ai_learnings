@@ -8,6 +8,7 @@ from langchain_core.example_selectors import SemanticSimilarityExampleSelector
 from langchain_openai import OpenAIEmbeddings
 
 
+
 load_dotenv()
 API_KEY = os.environ.get('OPENAI_API_KEY')
 # print(API_KEY)
