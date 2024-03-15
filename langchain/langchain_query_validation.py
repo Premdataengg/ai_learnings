@@ -6,6 +6,8 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_community.utilities import SQLDatabase
 import os
 
+
+
 load_dotenv()
 # get api key
 API_KEY = os.environ.get('OPENAI_API_KEY')
@@ -89,4 +91,3 @@ query = chain.invoke(
 print(query)
 
 # write a python code to calcualte dateofbirth
-def dob 

@@ -5,5 +5,5 @@ langchain
 psycopg2
 langchain-community
 langchain-openai
-
+pypdf
 
