@@ -11,7 +11,7 @@ df = pd.DataFrame(data)
 print(f'input file is {df}')
 # Convert the 'Number' column to integer, filling NaNs with -1
 df['Number'] = df['Number'].fillna(-1).astype(int)
-# print(f'input file is {df}')
+print(f'input file is {df}')
 # Function to replace NaN with empty values while retaining data type
 def replace_nan_with_empty(df):
     for col in df.columns:
@@ -27,6 +27,7 @@ def replace_nan_with_empty(df):
             df[col] = df[col].replace({np.nan: ''})
     return df
 df_replaced_all = replace_nan_with_empty(df) # Apply the function to replace NaNs in the DataFrame
+print(df_replaced_all.dtypes)
 data_array = df_replaced_all.values # Convert DataFrame to a numpy array
 # Specify the local path where you want to save the file
 np.savetxt('/users/prem/Documents/replaced_dataframe.txt', data_array, fmt='%s', delimiter=',')
